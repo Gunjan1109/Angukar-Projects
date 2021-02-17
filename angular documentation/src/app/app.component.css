@@ -1,0 +1,28 @@
+.header{
+    background-color: aqua;
+    height: 70px;
+    display: flex;
+    
+}
+
+h2{
+    color: white;
+    margin-top : 15px;
+}
+
+.but{
+    background-color: white;
+    height: 40px;
+    margin-top : 15px;
+    border: none;
+    
+}
+
+.text{
+    color: aqua;
+
+}
+
+.desc{
+    color: gainsboro;
+}

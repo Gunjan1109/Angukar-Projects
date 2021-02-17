@@ -1,0 +1,11 @@
+/* :host(.active){
+    background-color: red;
+}
+
+:hover{
+    background-color: blue;
+}
+
+:host-context(.theme-light) h2{
+    background-color: green;
+} */

@@ -1,0 +1,73 @@
+<div>
+    <h2>TODO List</h2>
+    <h3>Welcome {{name}}</h3>
+</div>
+
+<div>
+    <label for="task">Today's Task</label>
+    <input type="text" id="task" #task>
+    <br>
+    <label for="date">Completion Date</label>
+    <input type="date" id="date" #date>
+    <br>
+</div>
+<br>
+<div>
+    <h2>Extra Details</h2>
+    <label for="priority">Priority Level</label>
+    <input type="text" id="priority" #priority>
+</div>
+<!-- <div>
+    <h3>SVG Example</h3>
+
+    <svg>
+        <g>
+            <rect x="0" y="0" width="100" height="100" [attr.fill]="fillColor" (click)="changeColor()"></rect>
+            <text x="120" y="100">This is SVG</text>
+        </g>
+    </svg>
+</div> -->
+<div>
+    <button (click) = "saveTask(task.value,date.value,priority.value)">Add</button>
+</div>
+
+<table class="table table-dark">
+    <!-- #region -->
+    <thead class="thead-dark">
+        <th>Task</th>
+        <th>Date of Making</th>
+        <th>Completion Date</th>
+        <th>Status</th>
+        
+    </thead>
+    <tbody style="background-color: brown;">
+        <tr *ngFor="let task of tasks; index as id">
+            
+            <td>{{task.taskName}}</td>
+            <td>{{today | date:'dd-MM-yyyy'}} at {{today | date : 'hh:mm a':'+0530'}}</td>
+            <td>{{task.date | date:'dd-MM-yyyy'}}</td>
+            <td>{{task.status}}</td>
+
+            <td (click) = "deleteTask(id)"><button class="btn btn-primary">Done</button></td>
+            <td (click)="showDetails(task)"><button class="btn btn-danger">Details</button></td>
+            <!-- <td>{{obj.cgpa}}</td> -->
+
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="taskbool">
+<app-task-details [task]="taskone"></app-task-details>
+</div>
+<div>
+
+    <!-- <div>
+        <h1>GIFS</h1>
+        <div *ngFor="let g of gif">
+           <p> <img [src]="g" alt="image" srcset=""></p>
+        </div>
+
+    </div> -->
+
+    <app-weather></app-weather>
+<router-outlet></router-outlet>
+</div>

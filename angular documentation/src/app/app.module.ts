@@ -1,0 +1,42 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { ProductAlertComponent } from './product-alert/product-alert.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartComponent } from './cart/cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ShippingComponent } from './shipping/shipping.component';
+import { ExponentPipe } from './exponent.pipe';
+import { HighlightDirective } from './highlight.directive';
+@NgModule({
+  declarations: [						
+    AppComponent,
+     
+      ProductAlertComponent,
+      ProductDetailsComponent,
+      CartComponent,
+      ShippingComponent,
+      ExponentPipe,
+      HighlightDirective
+   ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule, 
+    RouterModule.forRoot([
+     // { path : '', component : AppComponent},
+      { path : 'products/:productId' , component : ProductDetailsComponent },
+      { path : "cart" , component : CartComponent},
+      { path : "shipping" , component : ShippingComponent }
+    ])
+
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+

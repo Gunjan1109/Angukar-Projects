@@ -1,0 +1,93 @@
+<!-- <button class="btn btn-primary">Button</button>
+<h2>Title is {{title}} hgjhgugu</h2>
+
+<img src="{{imgpath}}" alt="image" height="100 rem" width="120 rem">
+<img [src]="imgpath" alt="">
+<div>
+<button (click)="onsave()" class="btn btn-danger">Save</button>
+</div>
+<p>
+    <button (click)="paramevent($event)">Event Button</button>
+</p>
+
+<div (click)="divclick()" [ngStyle] = "divStyle()">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla eligendi adipisci, placeat delectus eius sed saepe qui ipsa ab ipsam! Nam quis sapiente fugiat. Perferendis esse ab vero provident dolore.
+</div>
+
+<input [(ngModel)]="n">
+<p>{{n}}</p>
+
+<p>Roll No <input type="text" #roll></p>
+<p>Name <input type="text" #name></p>
+<p>Batch <input type="text" #batch></p>
+<p>CGPA <input type="text" #cgpa></p>
+
+<button (click)="addInfo(roll,name,batch,cgpa)">ADD</button>
+
+<table class="table table-dark">`
+    
+    <thead class="thead-dark">
+        <th>Roll No</th>
+        <th>Name</th>
+        <th>Batch</th>
+        <th>CGPA</th>
+    </thead>
+    <tbody style="background-color: brown;">
+        <tr *ngFor="let obj of obj">
+            
+            <td>{{obj.roll_no}}</td>
+            <td>{{obj.name}}</td>
+            <td>{{obj.batch}}</td>
+            <td>{{obj.cgpa}}</td>
+        
+        </tr>
+    </tbody>
+</table>
+
+<app-user></app-user> -->
+
+
+
+    <div class="header">
+      <h2>My Store</h2>
+      <button class="but"><a routerLink="/cart"><span class="text">::CheckOut</span></a></button>
+    </div>
+    
+    <h2>Products</h2>
+    
+    <div *ngFor="let product of products; index as productId">
+      <a [title] = "product.name + ' details'" [routerLink]="['products/',productId]">
+      <h3>{{product.name}}</h3>
+    </a>
+    
+    <p *ngIf="product.description" class="desc">
+      Description : {{product.description}}
+     {{message}}
+    </p>
+    
+      <button class="btn btn-primary" (click) = "shareProduct()">Share</button>
+    
+      <app-product-alert [product] = "product" (notify)="onnotify($message)">
+    
+      </app-product-alert>
+    </div>
+    <p>{{message}}</p>
+    
+    <p>{{5 | exponent : 6}}</p>
+
+
+    <h4>Choose highlight Colour</h4>
+    <div>
+      <input type="radio" name="colors" (click)="color='green'">Green
+      <input type="radio" name="colors" (click)="color='red'">Red
+      <input type="radio" name="colors" (click)="color='cyan'">Cyan
+
+    </div>
+
+    <p [appHighlight]="color">highlight me</p>
+
+    <!-- <input (keyup) = "onKey($event)">
+
+    <p>{{value}}</p> -->
+    
+    <router-outlet></router-outlet>

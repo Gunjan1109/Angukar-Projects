@@ -1,0 +1,28 @@
+<h1>Weather Tracker</h1>
+
+<h2>Enter city name</h2>
+
+<input type="text" #city>
+
+<button class="btn btn-primary" (click)="getWeather(city.value)">Get</button>
+
+<table class="table table-dark" *ngIf="isClicked">
+    <!-- #region -->
+    <thead class="thead-dark">
+        <th>Temperature </th>
+        <th>Feels like</th>
+        <th>Humidity</th>
+        <th>Wind Speed</th>
+        
+    </thead>
+    <tbody style="background-color: brown;">
+        <tr>            
+            <td>{{json.main.temp}} *C</td>
+            <td>{{json.main.feels_like}} *C</td>
+            <td>{{json.main.humidity}} %</td>
+            <td>{{json.wind.speed}} km/h</td>
+            <!-- <td>{{obj.cgpa}}</td> -->
+
+        </tr>
+    </tbody>
+</table>
